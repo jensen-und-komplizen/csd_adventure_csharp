@@ -7,7 +7,7 @@ namespace TextAdventure
         static void Main(string[] args)
         {
             Adventure Adventure = new Adventure(new IOController());
-            var _AdventureContinues = Adventure.Begin();
+            Adventure.Begin();
         }
     }
 }
