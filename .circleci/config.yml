@@ -35,9 +35,9 @@ jobs:
             dotnet tool install -g trx2junit
             export PATH="$PATH:/root/.dotnet/tools"
             trx2junit **/TestResults/*.trx
-            cp CsdTextAdventure.Specs/bin/Debug/net5.0/TestExecution.json UnitTests/TestResults/
+            cp CsdTextAdventure.Specs/TestResults/*.xml UnitTests/TestResults/
       - store_test_results:
-          path: UnitTests/TestResults
+          path: UnitTest/TestResults
       - store_artifacts:
           path: UnitTests/TestResults
           destination: TestResults
