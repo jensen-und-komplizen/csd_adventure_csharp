@@ -19,6 +19,9 @@ jobs:
       # Checkout the code as the first step.
       - checkout
       # Then simply use the dotnet container as you'd expect and run your tests
+      - setup_remote_docker:
+          docker_layer_caching:
+            true
       - run:
           # Update this line with the directory that contains your tests project file
           working_directory: .
@@ -33,9 +36,9 @@ jobs:
             export PATH="$PATH:/root/.dotnet/tools"
             trx2junit **/TestResults/*.trx
       - store_test_results:
-          path: tests/TestResults
+          path: UnitTests/TestResults
       - store_artifacts:
-          path: tests/TestResults
+          path: UnitTests/TestResults
           destination: TestResults
 
 
