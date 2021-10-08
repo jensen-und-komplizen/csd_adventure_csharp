@@ -1,3 +1,4 @@
+using System;
 using CsdTextAdventure.Rooms;
 
 namespace CsdTextAdventure
@@ -6,6 +7,7 @@ namespace CsdTextAdventure
     {
         private readonly IOInterface _io;
         private bool _exit;
+        private Loo _room;
 
         public Adventure(IOInterface io)
         {
@@ -14,29 +16,27 @@ namespace CsdTextAdventure
             _exit = false;
         }
 
-        public void Begin()
+        public string Begin()
         {
-            _io.WriteLine("Welcome to our new Adventure!");
-            _io.WriteLine("#############################");
-            var room = new Loo();
-            _io.WriteLine(room.Description());
-            while (!_exit)
+            _room = new Loo();
+            return "Welcome to our new Adventure!" + Environment.NewLine + "#############################";
+        }
+
+        public string tell(string input)
+        {
+            if (input == "quit")
             {
-                string input = _io.ReadLine();
-                if (input == "quit")
-                {
-                    _exit = true;
-                } else if (input == "look around")
-                {
-                    _io.WriteLine(room.DetailedDescription());
-                } else if (input == "look at magazines")
-                {
-                    _io.WriteLine("You see a very much used Micky Mouse magazine, a very old and unusable playboy and what seems to be a scrum guide 2009 in mint condition.");
-                }
-                else
-                {
-                    _io.WriteLine("What????");
-                }
+                return "Bye bye";
+            } else if (input == "look around")
+            {
+                return _room.DetailedDescription();
+            } else if (input == "look at magazines")
+            {
+                return "You see a very much used Micky Mouse magazine, a very old and unusable playboy and what seems to be a scrum guide 2009 in mint condition.";
+            }
+            else
+            {
+                return "What????";
             }
         }
     }

@@ -1,4 +1,5 @@
 using CsdTextAdventure;
+using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 
@@ -15,6 +16,7 @@ namespace TestProject1
         {
             _ioInterfaceMock = new Mock<IOInterface>();
             _adventure = new Adventure(_ioInterfaceMock.Object);
+            _adventure.Begin();
         }
 
         [Test]
@@ -27,33 +29,22 @@ namespace TestProject1
         [Test]
         public void running_shows_Introduction()
         {
-            _ioInterfaceMock.Setup(x => x.ReadLine()).Returns("quit");
-            _adventure.Begin();
-            _ioInterfaceMock.Verify((x) => x.WriteLine("Welcome to our new Adventure!"), Times.Once);
+            string actual = _adventure.Begin();
+            actual.Should().Contain("Welcome to our new Adventure!");
         }
         
         [Test]
         public void that_I_can_look_around()
         {
-            var ioInterfaceMock = new Mock<IOInterface>();
-            ioInterfaceMock.SetupSequence(x => x.ReadLine())
-                .Returns("look around")
-                .Returns("quit");
-            Adventure adventure = new Adventure(ioInterfaceMock.Object);
-            adventure.Begin();
-            ioInterfaceMock.Verify((x) => x.WriteLine(It.IsRegex("You see a pretty dirty door.*")), Times.Once);
+            string actual = _adventure.tell("look around");
+            actual.Should().Contain("You see a pretty dirty door");
         }
         
         [Test]
         public void that_I_can_look_at_magazines()
         {
-            var ioInterfaceMock = new Mock<IOInterface>();
-            ioInterfaceMock.SetupSequence(x => x.ReadLine())
-                .Returns("look at magazines")
-                .Returns("quit");
-            Adventure adventure = new Adventure(ioInterfaceMock.Object);
-            adventure.Begin();
-            ioInterfaceMock.Verify((x) => x.WriteLine(It.IsRegex(".*see.*Micky Mouse magazine.*")), Times.Once);
+            string actual = _adventure.tell("look at magazines");
+            actual.Should().Match("*see *Micky Mouse magazine*");
         }    
     }
 }

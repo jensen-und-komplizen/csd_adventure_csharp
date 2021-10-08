@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Adventure Adventure = new Adventure(new IOController());
-            Adventure.Begin();
+            GameConsole gameConsole = new GameConsole(new IOController());
+            gameConsole.Begin();
         }
     }
 }

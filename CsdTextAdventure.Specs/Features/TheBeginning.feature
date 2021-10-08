@@ -4,3 +4,4 @@ Feature: TheBeginning
 Scenario: Running a new game
 	When I start the adventure
 	Then I see a welcome message
+	
