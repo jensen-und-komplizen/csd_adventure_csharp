@@ -37,7 +37,7 @@ jobs:
             trx2junit **/TestResults/*.trx
             cp CsdTextAdventure.Specs/TestResults/*.xml UnitTests/TestResults/
       - store_test_results:
-          path: UnitTest/TestResults
+          path: UnitTests/TestResults
       - store_artifacts:
           path: UnitTests/TestResults
           destination: TestResults
