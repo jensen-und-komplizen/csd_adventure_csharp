@@ -1,6 +1,7 @@
+using CsdTextAdventure;
 using NUnit.Framework;
 
-namespace TextAdventure.UnitTests
+namespace TestProject1
 {
     public class IOControllerTest
     {

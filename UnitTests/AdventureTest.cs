@@ -1,8 +1,8 @@
-using NUnit.Framework;
+using CsdTextAdventure;
 using Moq;
-using FluentAssertions;
+using NUnit.Framework;
 
-namespace TextAdventure.UnitTests
+namespace TestProject1
 {
     public class AdventureTest
     {

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsdTextAdventure", "CsdTextAdventure\CsdTextAdventure.csproj", "{190A4AC2-3628-4977-9C58-54108384DD2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsdTextAdventure.Specs", "CsdTextAdventure.Specs\CsdTextAdventure.Specs.csproj", "{037EC855-42CF-4770-A5D6-EB74D1ACA30A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{F9F2E53E-AA12-4848-8762-E42A49745415}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{190A4AC2-3628-4977-9C58-54108384DD2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{190A4AC2-3628-4977-9C58-54108384DD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{190A4AC2-3628-4977-9C58-54108384DD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{190A4AC2-3628-4977-9C58-54108384DD2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{037EC855-42CF-4770-A5D6-EB74D1ACA30A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{037EC855-42CF-4770-A5D6-EB74D1ACA30A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{037EC855-42CF-4770-A5D6-EB74D1ACA30A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{037EC855-42CF-4770-A5D6-EB74D1ACA30A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9F2E53E-AA12-4848-8762-E42A49745415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9F2E53E-AA12-4848-8762-E42A49745415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9F2E53E-AA12-4848-8762-E42A49745415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9F2E53E-AA12-4848-8762-E42A49745415}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

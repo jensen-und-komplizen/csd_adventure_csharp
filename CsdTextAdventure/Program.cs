@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TextAdventure
+﻿namespace CsdTextAdventure
 {
     class Program
     {

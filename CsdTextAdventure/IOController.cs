@@ -1,7 +1,6 @@
 using System;
-using TextAdventure.UnitTests;
 
-namespace TextAdventure
+namespace CsdTextAdventure
 {
     public class IOController : IOInterface
     {

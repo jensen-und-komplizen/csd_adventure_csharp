@@ -1,4 +1,4 @@
-namespace TextAdventure
+namespace CsdTextAdventure
 {
     public interface IOInterface
     {

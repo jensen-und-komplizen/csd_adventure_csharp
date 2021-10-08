@@ -1,10 +1,8 @@
-using System;
-using System.Runtime.InteropServices.ComTypes;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+using CsdTextAdventure.Rooms;
 
-namespace TextAdventure
+namespace CsdTextAdventure
 {
-    internal class Adventure
+    public class Adventure
     {
         private readonly IOInterface _io;
         private bool _exit;
@@ -20,7 +18,8 @@ namespace TextAdventure
         {
             _io.WriteLine("Welcome to our new Adventure!");
             _io.WriteLine("#############################");
-            _io.WriteLine("You wake up on the loo. You have no idea where or who you are.");
+            var room = new Loo();
+            _io.WriteLine(room.Description());
             while (!_exit)
             {
                 string input = _io.ReadLine();
@@ -29,7 +28,7 @@ namespace TextAdventure
                     _exit = true;
                 } else if (input == "look around")
                 {
-                    _io.WriteLine("You see a pretty dirty door, with some nasty jokes on it. Next to you is some toilet paper, a coin and a few magazines.");
+                    _io.WriteLine(room.DetailedDescription());
                 } else if (input == "look at magazines")
                 {
                     _io.WriteLine("You see a very much used Micky Mouse magazine, a very old and unusable playboy and what seems to be a scrum guide 2009 in mint condition.");
