@@ -27,13 +27,7 @@ jobs:
           working_directory: .
           name: Run tests
           command: |
-            dotnet test -l trx UnitTests 
-      - run:
-          # Update this line with the directory that contains your tests project file
-          working_directory: .
-          name: Run tests
-          command: |
-            dotnet test CsdTextAdventure.Specs 
+            dotnet test -l trx  
       - run:
           name: test results
           when: always
