@@ -25,5 +25,22 @@ namespace CsdTextAdventure.Specs
         }
 
 
+        [Given(@"I am in the Loo")]
+        public void GivenIAmInTheLoo()
+        {
+            
+        }
+
+        [When(@"I go through the door")]
+        public void WhenIGoThroughTheDoor()
+        {
+            _lastAdventureOutput = _adventure.tell("go through door");
+        }
+
+        [Then(@"I am in the Restroom")]
+        public void ThenIAmInTheRestroom()
+        {
+            _lastAdventureOutput.Should().Match("*Restroom*");
+        }
     }
 }

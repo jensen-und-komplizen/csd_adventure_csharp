@@ -1,6 +1,6 @@
 namespace CsdTextAdventure.Rooms
 {
-    public class Loo
+    public class Loo : Room
     {
         public string Description()
         {
