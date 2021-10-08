@@ -80,14 +80,14 @@ namespace CsdTextAdventure.Specs.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Running a new game")]
+        [Xunit.SkippableFactAttribute(DisplayName="Starting an adventure")]
         [Xunit.TraitAttribute("FeatureTitle", "TheBeginning")]
-        [Xunit.TraitAttribute("Description", "Running a new game")]
-        public virtual void RunningANewGame()
+        [Xunit.TraitAttribute("Description", "Starting an adventure")]
+        public virtual void StartingAnAdventure()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Running a new game", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Starting an adventure", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

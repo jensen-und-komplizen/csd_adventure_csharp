@@ -13,7 +13,7 @@ namespace CsdTextAdventure
 
         public void Begin()
         {
-            Adventure adventure = new Adventure(null);
+            Adventure adventure = new Adventure();
             _io.WriteLine(adventure.Begin());
             
             string input;

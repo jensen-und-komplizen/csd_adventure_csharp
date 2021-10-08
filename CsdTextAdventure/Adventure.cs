@@ -5,16 +5,7 @@ namespace CsdTextAdventure
 {
     public class Adventure
     {
-        private readonly IOInterface _io;
-        private bool _exit;
         private Loo _room;
-
-        public Adventure(IOInterface io)
-        {
-            _io = io;
-
-            _exit = false;
-        }
 
         public string Begin()
         {

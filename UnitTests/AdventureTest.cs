@@ -7,22 +7,20 @@ namespace TestProject1
 {
     public class AdventureTest
     {
-        private Mock<IOInterface> _ioInterfaceMock;
         private Adventure _adventure;
 
 
         [SetUp]
         public void SetUp()
         {
-            _ioInterfaceMock = new Mock<IOInterface>();
-            _adventure = new Adventure(_ioInterfaceMock.Object);
+            _adventure = new Adventure();
             _adventure.Begin();
         }
 
         [Test]
         public void Adventure_can_be_started()
         {
-            Adventure adventure = new Adventure(null);
+            Adventure adventure = new Adventure();
             Assert.IsInstanceOf<Adventure>(adventure);
         }
 
