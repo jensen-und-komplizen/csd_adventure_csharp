@@ -39,6 +39,13 @@ namespace TestProject1
         }
         
         [Test]
+        public void i_see_a_card_in_the_toilet()
+        {
+            string actual = _adventure.tell("look around");
+            actual.Should().Contain("business card");
+        }
+
+        [Test]
         public void that_I_can_look_at_magazines()
         {
             string actual = _adventure.tell("look at magazines");
