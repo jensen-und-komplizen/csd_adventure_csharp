@@ -6,10 +6,12 @@ namespace CsdTextAdventure
     public class Adventure
     {
         private Room _room;
+        private Boolean _coinOnFloor;
 
         public string Begin()
         {
             _room = new Loo();
+            _coinOnFloor = true;
             return "Welcome to our new Adventure!" + Environment.NewLine + "#############################";
         }
 
@@ -33,6 +35,15 @@ namespace CsdTextAdventure
             else if (input == "look at card")
             {
                 return "The card says that you are a Scrum Master";
+            }
+            else if (input == "pick up coin" && _coinOnFloor == true)
+            {
+                _coinOnFloor = false;
+                return "You picked up the coin and put it in your pocket.";
+            }
+            else if (input == "pick up coin" && _coinOnFloor == false)
+            {
+                return "There are no more coins on the floor.";
             }
             else
             {

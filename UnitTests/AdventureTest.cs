@@ -46,6 +46,23 @@ namespace TestProject1
         }
 
         [Test]
+        public void pick_up_coin_first()
+        {
+            _adventure.Begin();
+            string actual = _adventure.tell("pick up coin");
+            actual.Should().Contain("picked up");
+        }
+
+        [Test]
+        public void pick_up_coin_second()
+        {
+            _adventure.Begin();
+            string actual = _adventure.tell("pick up coin");
+            actual = _adventure.tell("pick up coin");        
+            actual.Should().Contain("no more coins");
+        }
+
+        [Test]
         public void that_I_can_look_at_magazines()
         {
             string actual = _adventure.tell("look at magazines");
