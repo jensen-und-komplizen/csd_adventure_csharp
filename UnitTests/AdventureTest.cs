@@ -37,6 +37,14 @@ namespace TestProject1
             string actual = _adventure.tell("look around");
             actual.Should().Contain("You see a pretty dirty door");
         }
+
+        [Test]
+        public void that_Restroom_has_a_second_door()
+        {
+            _adventure.tell("go through door");
+            string actual = _adventure.tell("look around");
+            actual.Should().Contain("The second door is leading to outside of the restroom");
+        }
         
         [Test]
         public void that_I_can_look_at_magazines()
@@ -51,5 +59,7 @@ namespace TestProject1
             string actual = _adventure.tell("look at card");
             actual.Should().Match("The card says that you are a Scrum Master");
         }
+
+
     }
 }
