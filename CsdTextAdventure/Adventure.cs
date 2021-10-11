@@ -32,7 +32,7 @@ namespace CsdTextAdventure
             }
             else if (input == "look at card")
             {
-                return "The card says that you are a Scrum Master.";
+                return "The card says that you are a Scrum Master";
             }
             else
             {
