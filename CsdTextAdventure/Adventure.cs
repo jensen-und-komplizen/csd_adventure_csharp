@@ -30,6 +30,10 @@ namespace CsdTextAdventure
                 _room = new Restroom();
                 return _room.Description();
             }
+            else if (input == "look at card")
+            {
+                return "The card says that you are a Scrum Master.";
+            }
             else
             {
                 return "What????";
