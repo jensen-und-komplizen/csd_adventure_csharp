@@ -34,6 +34,13 @@ namespace TestProject1
         }
         
         [Test]
+        public void running_shows_Where_am_i()
+        {
+            string actual = _adventure.Begin();
+            actual.Should().MatchRegex("\\sloo[\\s\\.!]");
+        }
+
+        [Test]
         public void that_I_can_look_around()
         {
             string actual = _adventure.tell("look around");
@@ -78,6 +85,7 @@ namespace TestProject1
             string actual = _adventure.tell("look at magazines");
             actual.Should().Match("*see *Micky Mouse magazine*");
         }
+        
 
         [Test]
         public void that_I_learn_my_role_looking_at_card()

@@ -16,8 +16,14 @@ namespace CsdTextAdventure
         {
             _room = new Loo();
             _coinOnFloor = true;
+<<<<<<< HEAD
             WriteJokes();
             return "Welcome to our new Adventure!" + Environment.NewLine + "#############################";
+=======
+            return "Welcome to our new Adventure!" + Environment.NewLine + "#############################" 
+                + Environment.NewLine + "You wake up on the loo." + Environment.NewLine + "You have no idea who or where you are";
+
+>>>>>>> 80f44416b2587e90c2360498bef3af5e9c1e708b
         }
 
         private void WriteJokes()
