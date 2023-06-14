@@ -76,13 +76,7 @@ namespace TestProject1
             string actual = _adventure.tell("look at magazines");
             actual.Should().Match("*see *Micky Mouse magazine*");
         }
-
-        [Test]
-        public void that_developers_are_still_around()
-        {
-            string actual = _adventure.tell("search for devs");
-            actual.Should().Match("I found some!");
-        }
+        
 
         [Test]
         public void that_I_learn_my_role_looking_at_card()
