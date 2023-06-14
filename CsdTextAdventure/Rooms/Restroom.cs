@@ -9,7 +9,7 @@ namespace CsdTextAdventure.Rooms
 
         public string DetailedDescription()
         {
-            return "You see two doors. One is leading to the Loo. The second door is leading to outside of the restroom";
+            return "Beside the mirror you see a list with things to do. You see two doors. One is leading to the Loo. The second door is leading to outside of the restroom";
         }
     }
 }
