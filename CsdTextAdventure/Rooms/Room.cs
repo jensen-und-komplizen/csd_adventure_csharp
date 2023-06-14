@@ -1,8 +1,13 @@
 namespace CsdTextAdventure.Rooms
 {
-    internal interface Room
+    public class Room
     {
-        public string Description();
-        public string DetailedDescription();
+        public string Description() {return _description;}
+        public string DetailedDescription() {return _detailed_description;}
+        public string Help() {return _help;}
+        
+        protected string _description = "";
+        protected string _detailed_description = "";
+        protected string _help = "";
     }
 }
