@@ -16,6 +16,7 @@ namespace CsdTextAdventure
         {
             _room = new Loo();
             _coinOnFloor = true;
+            /* initialize the list of jokes to tell */
             WriteJokes();
             return "Welcome to our new Adventure!" + Environment.NewLine + "#############################" 
                 + Environment.NewLine + "You wake up on the loo." + Environment.NewLine + "You have no idea who or where you are";
@@ -23,6 +24,7 @@ namespace CsdTextAdventure
 
         private void WriteJokes()
         {
+            /* add some jokes to the central list of jokes. these will be used when the user types "look at jokes" */
             jokes.Add("\"Knock knock.\"" + Environment.NewLine + "Who\'s there?" + Environment.NewLine + "\"Carrie.\"" + Environment.NewLine + "Carrie who?" + Environment.NewLine + "\"Carrie over to next sprint.\"");
             jokes.Add("We need three more programs!" + Environment.NewLine + "Use Agile program \"Ming method\".");
             jokes.Add("We are going to try something which is called Agile programming." + Environment.NewLine + "\"That mean no more planning no more documentation just start writing code and complaining\"." + Environment.NewLine + "I\'m Glad it has a name.");
@@ -33,6 +35,9 @@ namespace CsdTextAdventure
 
         private String TellJoke()
         {
+            /* return a joke from the central list of jokes. each time a joke is returned. 
+            the index is increased by 1 and the next time a joke is requested, the user will see the next joke in the list.
+            if the index reaches the end of the list, we start from the beginning of the list */
             return jokes[jokeIdx++ % jokes.Count] + Environment.NewLine;
         }
 
