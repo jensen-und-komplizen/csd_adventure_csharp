@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using CsdTextAdventure;
 using FluentAssertions;
 using Moq;
@@ -78,19 +80,27 @@ namespace TestProject1
         }
 
         [Test]
-        public void that_developers_are_still_around()
-        {
-            string actual = _adventure.tell("search for devs");
-            actual.Should().Match("I found some!");
-        }
-
-        [Test]
         public void that_I_learn_my_role_looking_at_card()
         {
             string actual = _adventure.tell("look at card");
             actual.Should().Match("The card says that you are a Scrum Master");
         }
 
+        [Test]
+        public void that_I_can_look_at_jokes()
+        {
+            List<string> expectedJokes = new()
+            {
+                "\"Knock knock.\"" + Environment.NewLine + "Who\'s there?" + Environment.NewLine + "\"Carrie.\"" + Environment.NewLine + "Carrie who?" + Environment.NewLine + "\"Carrie over to next sprint.\"" + Environment.NewLine,
+                "We need three more programs!" + Environment.NewLine + "Use Agile program \"Ming method\"." + Environment.NewLine,
+                "We are going to try something which is called Agile programming." + Environment.NewLine + "\"That mean no more planning no more documentation just start writing code and complaining\"." + Environment.NewLine + "I\'m Glad it has a name." + Environment.NewLine,
+                "Because the requirements said so. The trebuchet was the most efficient method. Oh, she had to get to the other side alive? Where was that in the requirements? " + Environment.NewLine,
+                "Let’s iterate, people. Let’s get the chicken to the center line today, and we’ll talk about the rest of the way tomorrow." + Environment.NewLine,
+                "Kanbanista: Someone who is aggressively, revolutionarily passionate about colored tape on whiteboards." + Environment.NewLine
+            };
 
+            string actual = _adventure.tell("look at jokes");
+            Assert.True(expectedJokes.Contains(actual));
+        }
     }
 }
