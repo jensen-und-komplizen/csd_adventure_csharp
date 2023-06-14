@@ -29,6 +29,8 @@ namespace TestProject1
         {
             string actual = _adventure.Begin();
             actual.Should().Contain("Welcome to our new Adventure!");
+            actual.Should().Contain("You wake up on the loo.");
+            actual.Should().Contain("You have no idea who or where you are");
         }
         
         [Test]

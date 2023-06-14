@@ -12,7 +12,9 @@ namespace CsdTextAdventure
         {
             _room = new Loo();
             _coinOnFloor = true;
-            return "Welcome to our new Adventure!" + Environment.NewLine + "#############################";
+            return "Welcome to our new Adventure!" + Environment.NewLine + "#############################" 
+                + Environment.NewLine + "You wake up on the loo." + Environment.NewLine + "You have no idea who or where you are";
+
         }
 
         public string tell(string input)
