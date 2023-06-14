@@ -47,6 +47,10 @@ namespace CsdTextAdventure
             {
                 return "There are no more coins on the floor.";
             }
+			else if (input == "read list" || input == "look at list" || input == "show list")
+			{
+				return " - wash hands \n - pull up pants\n - dry hair";
+			}
             else
             {
                 return "What????";

@@ -51,6 +51,17 @@ namespace TestProject1
             _adventure.tell("go through door");
             string actual = _adventure.tell("look around");
             actual.Should().Contain("The second door is leading to outside of the restroom");
+            actual.Should().Contain("list");
+        }
+
+        [Test]
+        public void that_Restroom_has_a_List_to_do()
+        {
+            _adventure.tell("go through door");
+            string actual = _adventure.tell("show list");
+            actual.Should().Contain("wash");
+            actual.Should().Contain("pant");
+            actual.Should().Contain("dry");
         }
         
         [Test]
