@@ -13,7 +13,8 @@ namespace CsdTextAdventure.Rooms
                 "quit" + Environment.NewLine +
                 "look around" + Environment.NewLine +
                 "go through door" + Environment.NewLine +
-                "look at" + Environment.NewLine;
+                "look at" + Environment.NewLine +
+                "where am i" + Environment.NewLine;
         }
 
         override public string Name()
