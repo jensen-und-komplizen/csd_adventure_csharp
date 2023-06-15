@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CsdTextAdventure;
+using CsdTextAdventure.Rooms;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
@@ -110,5 +111,6 @@ namespace TestProject1
             string actual = _adventure.tell("look at jokes");
             Assert.True(expectedJokes.Contains(actual));
         }
+
     }
 }

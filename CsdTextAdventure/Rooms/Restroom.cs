@@ -1,3 +1,5 @@
+using System;
+
 namespace CsdTextAdventure.Rooms
 {
     public class Restroom : Room
@@ -6,6 +8,12 @@ namespace CsdTextAdventure.Rooms
         {
             _description = "You are in the Restroom.";
             _detailed_description = "Beside the mirror you see a list with things to do. You see two doors. One is leading to the Loo. The second door is leading to outside of the restroom";
+            _help =
+                "Commands:" + Environment.NewLine +
+                "quit" + Environment.NewLine +
+                "look around" + Environment.NewLine +
+                "go through door" + Environment.NewLine +
+                "look at" + Environment.NewLine;
         }
     }
 }

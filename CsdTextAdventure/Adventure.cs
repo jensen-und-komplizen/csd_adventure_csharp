@@ -75,6 +75,10 @@ namespace CsdTextAdventure
             {
                 return TellJoke();
             }
+            else if(input == "help")
+            {
+                return _room.Help();
+            }
             else
             {
                 return "What????";
