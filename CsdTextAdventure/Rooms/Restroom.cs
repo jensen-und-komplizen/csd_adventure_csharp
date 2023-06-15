@@ -11,5 +11,10 @@ namespace CsdTextAdventure.Rooms
         {
             return "You see two doors. One is leading to the Loo. The second door is leading to outside of the restroom";
         }
+
+        public string Name()
+        {
+            return "Restroom";
+        }
     }
 }

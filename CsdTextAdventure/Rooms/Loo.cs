@@ -12,6 +12,11 @@ namespace CsdTextAdventure.Rooms
             return
                 "You see a pretty dirty door, with some nasty jokes on it. Next to you is some toilet paper, a coin and a few magazines." + " When you look down, you see your dropped pants. In one of the pockets, you find a business card.";
         }
+
+        public string Name()
+        {
+            return "Loo";
+        }
     }
 
 }

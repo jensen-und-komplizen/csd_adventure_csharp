@@ -4,5 +4,7 @@ namespace CsdTextAdventure.Rooms
     {
         public string Description();
         public string DetailedDescription();
+
+        public string Name();
     }
 }
