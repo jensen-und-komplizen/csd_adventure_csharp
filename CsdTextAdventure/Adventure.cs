@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using CsdTextAdventure.Rooms;
 
 namespace CsdTextAdventure
@@ -9,14 +10,36 @@ namespace CsdTextAdventure
         private Boolean _coinOnFloor;
         private Boolean _pantsUp;
 
+        private List<string> jokes = new();
+        private int jokeIdx = 0;
+
         public string Begin()
         {
             _room = new Loo();
             _coinOnFloor = true;
-            _pantsUp = false;
+            _pantsUp = false;            /* initialize the list of jokes to tell */
+            WriteJokes();
             return "Welcome to our new Adventure!" + Environment.NewLine + "#############################" 
                 + Environment.NewLine + "You wake up on the loo." + Environment.NewLine + "You have no idea who or where you are";
+        }
 
+        private void WriteJokes()
+        {
+            /* add some jokes to the central list of jokes. these will be used when the user types "look at jokes" */
+            jokes.Add("\"Knock knock.\"" + Environment.NewLine + "Who\'s there?" + Environment.NewLine + "\"Carrie.\"" + Environment.NewLine + "Carrie who?" + Environment.NewLine + "\"Carrie over to next sprint.\"");
+            jokes.Add("We need three more programs!" + Environment.NewLine + "Use Agile program \"Ming method\".");
+            jokes.Add("We are going to try something which is called Agile programming." + Environment.NewLine + "\"That mean no more planning no more documentation just start writing code and complaining\"." + Environment.NewLine + "I\'m Glad it has a name.");
+            jokes.Add("Because the requirements said so. The trebuchet was the most efficient method. Oh, she had to get to the other side alive? Where was that in the requirements? ");
+            jokes.Add("Let’s iterate, people. Let’s get the chicken to the center line today, and we’ll talk about the rest of the way tomorrow.");
+            jokes.Add("Kanbanista: Someone who is aggressively, revolutionarily passionate about colored tape on whiteboards.");
+        }
+
+        private String TellJoke()
+        {
+            /* return a joke from the central list of jokes. each time a joke is returned. 
+            the index is increased by 1 and the next time a joke is requested, the user will see the next joke in the list.
+            if the index reaches the end of the list, we start from the beginning of the list */
+            return jokes[jokeIdx++ % jokes.Count] + Environment.NewLine;
         }
 
         public string tell(string input)
@@ -58,7 +81,14 @@ namespace CsdTextAdventure
             {
                 return "There are no more coins on the floor.";
             }
-            else if (input == "pull up pants")
+			else if (input == "read list" || input == "look at list" || input == "show list")
+			{
+				return " - wash hands \n - pull up pants\n - dry hair";
+			}
+            else if(input == "look at jokes")
+            {
+                return TellJoke();
+            }            else if (input == "pull up pants")
             {
                 _pantsUp = true;
                 return "Your pants are up.";
@@ -71,8 +101,7 @@ namespace CsdTextAdventure
             else if (input == "where am i")
             {
                 return "I am in the " + _room.Name();
-            }
-            else
+            }            else
             {
                 return "What????";
             }

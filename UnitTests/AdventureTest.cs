@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using CsdTextAdventure;
 using FluentAssertions;
 using Moq;
@@ -52,6 +54,17 @@ namespace TestProject1
             _adventure.tell("go through door");
             string actual = _adventure.tell("look around");
             actual.Should().Contain("The second door is leading to outside of the restroom");
+            actual.Should().Contain("list");
+        }
+
+        [Test]
+        public void that_Restroom_has_a_List_to_do()
+        {
+            _adventure.tell("go through door");
+            string actual = _adventure.tell("show list");
+            actual.Should().Contain("wash");
+            actual.Should().Contain("pant");
+            actual.Should().Contain("dry");
         }
         
         [Test]
@@ -94,6 +107,23 @@ namespace TestProject1
         }
 
         [Test]
+        public void that_I_can_look_at_jokes()
+        {
+            List<string> expectedJokes = new()
+            {
+                "\"Knock knock.\"" + Environment.NewLine + "Who\'s there?" + Environment.NewLine + "\"Carrie.\"" + Environment.NewLine + "Carrie who?" + Environment.NewLine + "\"Carrie over to next sprint.\"" + Environment.NewLine,
+                "We need three more programs!" + Environment.NewLine + "Use Agile program \"Ming method\"." + Environment.NewLine,
+                "We are going to try something which is called Agile programming." + Environment.NewLine + "\"That mean no more planning no more documentation just start writing code and complaining\"." + Environment.NewLine + "I\'m Glad it has a name." + Environment.NewLine,
+                "Because the requirements said so. The trebuchet was the most efficient method. Oh, she had to get to the other side alive? Where was that in the requirements? " + Environment.NewLine,
+                "Let’s iterate, people. Let’s get the chicken to the center line today, and we’ll talk about the rest of the way tomorrow." + Environment.NewLine,
+                "Kanbanista: Someone who is aggressively, revolutionarily passionate about colored tape on whiteboards." + Environment.NewLine
+            };
+
+
+
+            string actual = _adventure.tell("look at jokes");
+            Assert.True(expectedJokes.Contains(actual));
+        }        [Test]
         public void that_I_stay_in_the_Loo_if_my_pants_are_down()
         {
             string actual = _adventure.tell("go through door");
@@ -101,6 +131,12 @@ namespace TestProject1
             actual = _adventure.tell("where am i");
             actual.Should().Match("*Loo*");
         }
+
+
+
+
+
+
 
         [Test]
         public void that_Where_am_i_if_pants_up()
@@ -117,6 +153,5 @@ namespace TestProject1
             string actual = _adventure.tell("go through door");
             actual = _adventure.tell("where am i");
             actual.Should().Match("*Loo*");
-        }
-    }
+        }    }
 }
