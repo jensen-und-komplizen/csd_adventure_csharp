@@ -8,6 +8,7 @@ namespace CsdTextAdventure
     {
         private Room _room;
         private Boolean _coinOnFloor;
+        private Boolean _pantsUp;
 
         private List<string> jokes = new();
         private int jokeIdx = 0;
@@ -16,7 +17,7 @@ namespace CsdTextAdventure
         {
             _room = new Loo();
             _coinOnFloor = true;
-            /* initialize the list of jokes to tell */
+            _pantsUp = false;            /* initialize the list of jokes to tell */
             WriteJokes();
             return "Welcome to our new Adventure!" + Environment.NewLine + "#############################" 
                 + Environment.NewLine + "You wake up on the loo." + Environment.NewLine + "You have no idea who or where you are";
@@ -46,17 +47,26 @@ namespace CsdTextAdventure
             if (input == "quit")
             {
                 return "Bye bye";
-            } else if (input == "look around")
+            }
+            else if (input == "look around")
             {
                 return _room.DetailedDescription();
-            } else if (input == "look at magazines")
+            }
+            else if (input == "look at magazines")
             {
                 return
                     "You see a very much used Micky Mouse magazine, a very old and unusable playboy and what seems to be a scrum guide 2009 in mint condition.";
-            } else if (input == "go through door")
+            }
+            else if (input == "go through door")
             {
-                _room = new Restroom();
-                return _room.Description();
+                var descr = "Pull your pants up!!! You pig!";
+                if (_room is Loo && _pantsUp)
+                {
+                    _room = new Restroom();
+                    descr = _room.Description();
+                }
+
+                return descr;
             }
             else if (input == "look at card")
             {
@@ -71,13 +81,31 @@ namespace CsdTextAdventure
             {
                 return "There are no more coins on the floor.";
             }
+			else if (input == "read list" || input == "look at list" || input == "show list")
+			{
+				return " - wash hands \n - pull up pants\n - dry hair";
+			}
             else if(input == "look at jokes")
             {
                 return TellJoke();
             }
+            else if (input == "pull up pants")
+            {
+                _pantsUp = true;
+                return "Your pants are up.";
+            }
             else if(input == "help")
             {
                 return _room.Help();
+            }
+            else if (input == "pull down pants")
+            {
+                _pantsUp = false;
+                return "Your pants are down.";
+            }
+            else if (input == "where am i")
+            {
+                return "I am in the " + _room.Name();
             }
             else
             {

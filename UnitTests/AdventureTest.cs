@@ -51,9 +51,21 @@ namespace TestProject1
         [Test]
         public void that_Restroom_has_a_second_door()
         {
+            _adventure.tell("pull up pants");
             _adventure.tell("go through door");
             string actual = _adventure.tell("look around");
             actual.Should().Contain("The second door is leading to outside of the restroom");
+            actual.Should().Contain("list");
+        }
+
+        [Test]
+        public void that_Restroom_has_a_List_to_do()
+        {
+            _adventure.tell("go through door");
+            string actual = _adventure.tell("show list");
+            actual.Should().Contain("wash");
+            actual.Should().Contain("pant");
+            actual.Should().Contain("dry");
         }
         
         [Test]
@@ -108,9 +120,39 @@ namespace TestProject1
                 "Kanbanista: Someone who is aggressively, revolutionarily passionate about colored tape on whiteboards." + Environment.NewLine
             };
 
+
+
             string actual = _adventure.tell("look at jokes");
             Assert.True(expectedJokes.Contains(actual));
+        }        [Test]
+        public void that_I_stay_in_the_Loo_if_my_pants_are_down()
+        {
+            string actual = _adventure.tell("go through door");
+            actual.Should().Match("*Pull*pants*up*");
+            actual = _adventure.tell("where am i");
+            actual.Should().Match("*Loo*");
         }
 
-    }
+
+
+
+
+
+
+        [Test]
+        public void that_Where_am_i_if_pants_up()
+        {
+            string actual = _adventure.tell("pull up pants");
+            _adventure.tell("go through door");
+            actual = _adventure.tell("where am i");
+            actual.Should().Match("*Restroom*");
+        }
+
+        [Test]
+        public void that_Where_am_i_if_pants_down()
+        {
+            string actual = _adventure.tell("go through door");
+            actual = _adventure.tell("where am i");
+            actual.Should().Match("*Loo*");
+        }    }
 }

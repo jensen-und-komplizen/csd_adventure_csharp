@@ -16,6 +16,11 @@ namespace CsdTextAdventure.Rooms
                 "look at" + Environment.NewLine +
                 "pick up" + Environment.NewLine;
         }
+
+        override public string Name()
+        {
+            return "Loo";
+        }
     }
 
 }

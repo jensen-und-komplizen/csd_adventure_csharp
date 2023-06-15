@@ -15,5 +15,10 @@ namespace CsdTextAdventure.Rooms
                 "go through door" + Environment.NewLine +
                 "look at" + Environment.NewLine;
         }
+
+        override public string Name()
+        {
+            return "Restroom";
+        }
     }
 }
