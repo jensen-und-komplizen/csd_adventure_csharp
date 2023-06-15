@@ -98,7 +98,7 @@ namespace CsdTextAdventure
                 _pantsUp = true;
                 return "Your pants are up.";
             }
-            else if(input == "help")
+            else if(input == "help" || input == "Help")
             {
                 return _room.Help();
             }
@@ -113,7 +113,7 @@ namespace CsdTextAdventure
             }
             else
             {
-                return "What????";
+                return "Sorry. That didn't made sense. Try 'Help'.";
             }
         }
     }

@@ -69,6 +69,13 @@ namespace TestProject1
         }
         
         [Test]
+        public void that_Help_is_suggestet_at_unknowen_Command()
+        {
+			string actual = _adventure.tell("unknowen Comand");
+            actual.Should().Contain("Help");
+        }
+		
+        [Test]
         public void i_see_a_card_in_the_toilet()
         {
             string actual = _adventure.tell("look around");
