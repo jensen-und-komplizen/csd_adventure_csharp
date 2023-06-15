@@ -28,7 +28,7 @@ namespace CsdTextAdventure.Specs
         [Given(@"I am in the Loo")]
         public void GivenIAmInTheLoo()
         {
-            
+
         }
 
         [When(@"I go through the door")]
@@ -37,10 +37,29 @@ namespace CsdTextAdventure.Specs
             _lastAdventureOutput = _adventure.tell("go through door");
         }
 
+        [When(@"I pull up pants")]
+        public void WhenIPullUpPants()
+        {
+            _lastAdventureOutput = _adventure.tell("pull up pants");
+        }
+
+        [When(@"I pull down pants")]
+        public void WhenIPullDownPants()
+        {
+            _lastAdventureOutput = _adventure.tell("pull down pants");
+        }
+
         [Then(@"I am in the Restroom")]
         public void ThenIAmInTheRestroom()
         {
             _lastAdventureOutput.Should().Match("*Restroom*");
+        }
+
+        [Then(@"I must pull my pants up")]
+        public void ThenMustPullMyPantsUp()
+        {
+            _lastAdventureOutput.Should().Match("*Pull*pants*up*");
+
         }
     }
 }
