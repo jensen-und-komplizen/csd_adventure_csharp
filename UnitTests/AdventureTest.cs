@@ -61,6 +61,7 @@ namespace TestProject1
         [Test]
         public void that_Restroom_has_a_List_to_do()
         {
+            _adventure.tell("pull up pants");
             _adventure.tell("go through door");
             string actual = _adventure.tell("show list");
             actual.Should().Contain("wash");

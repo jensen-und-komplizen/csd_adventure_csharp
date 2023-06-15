@@ -6,6 +6,8 @@ namespace CsdTextAdventure.Rooms
         public string Description() {return _description;}
         public string DetailedDescription() {return _detailed_description;}
         public string Help() {return _help;}
+
+        public abstract string Tell(string input, Adventure adventure);
         
         protected string _description = "";
         protected string _detailed_description = "";

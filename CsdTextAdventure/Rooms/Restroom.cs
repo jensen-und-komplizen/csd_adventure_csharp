@@ -4,6 +4,7 @@ namespace CsdTextAdventure.Rooms
 {
     public class Restroom : Room
     {
+
         public Restroom ()
         {
             _description = "You are in the Restroom.";
@@ -20,6 +21,21 @@ namespace CsdTextAdventure.Rooms
         override public string Name()
         {
             return "Restroom";
+        }
+
+        public override string Tell(string input, Adventure adventure)
+        {
+            switch(input)
+            {
+                case "read list":
+                case "look at list":
+                case "show list":
+				    return " - wash hands \n - pull up pants\n - dry hair";
+
+
+                default:
+                    return "";
+            }
         }
     }
 }
