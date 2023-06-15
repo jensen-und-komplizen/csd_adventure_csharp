@@ -121,5 +121,12 @@ namespace TestProject1
             string actual = _adventure.tell("look at jokes");
             Assert.True(expectedJokes.Contains(actual));
         }
+		
+		[Test]
+		public void that_I_cannot_open_playboy()
+		{
+			string actual = _adventure.tell("open playboy");
+			actual.Should().Match("sorry, the pages seem to stick together");
+		}
     }
 }

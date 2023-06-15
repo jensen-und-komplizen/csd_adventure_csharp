@@ -79,6 +79,10 @@ namespace CsdTextAdventure
             {
                 return TellJoke();
             }
+			else if (input == "open playboy")
+			{
+				return ("sorry, the pages seem to stick together");
+			}
             else
             {
                 return "What????";
