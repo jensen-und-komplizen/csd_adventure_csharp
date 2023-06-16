@@ -92,6 +92,9 @@ namespace CsdTextAdventure.Rooms
                     _pantsUp = true;
                     return "Your pants are up.";
 
+                case "open playboy":
+                    return "sorry, the pages seem to stick together";
+
                 default:
                     return "";
             }

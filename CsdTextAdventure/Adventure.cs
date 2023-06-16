@@ -34,7 +34,7 @@ namespace CsdTextAdventure
             {
                 return "I am in the " + _room.Name();
             }
-            else if(input == "help")
+            else if(input == "help" || input == "Help")
             {
                 return _room.Help();
             }
@@ -43,7 +43,7 @@ namespace CsdTextAdventure
                 var output = _room.Tell(input, this);
                 if(output == "")
                 {
-                    return "What???";
+                    return "Sorry. That didn't made sense. Try 'Help'.";;
                 }
                 return output;
             }

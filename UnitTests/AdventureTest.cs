@@ -70,6 +70,13 @@ namespace TestProject1
         }
         
         [Test]
+        public void that_Help_is_suggestet_at_unknowen_Command()
+        {
+			string actual = _adventure.tell("unknowen Comand");
+            actual.Should().Contain("Help");
+        }
+		
+        [Test]
         public void i_see_a_card_in_the_toilet()
         {
             string actual = _adventure.tell("look around");
@@ -133,12 +140,13 @@ namespace TestProject1
             actual = _adventure.tell("where am i");
             actual.Should().Match("*Loo*");
         }
-
-
-
-
-
-
+		
+		[Test]
+		public void that_I_cannot_open_playboy()
+		{
+			string actual = _adventure.tell("open playboy");
+			actual.Should().Match("sorry, the pages seem to stick together");
+		}
 
         [Test]
         public void that_Where_am_i_if_pants_up()
@@ -155,5 +163,7 @@ namespace TestProject1
             string actual = _adventure.tell("go through door");
             actual = _adventure.tell("where am i");
             actual.Should().Match("*Loo*");
-        }    }
+        } 
+	}
+
 }
