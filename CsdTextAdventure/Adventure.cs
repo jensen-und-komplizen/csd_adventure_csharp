@@ -13,6 +13,11 @@ namespace CsdTextAdventure
             _room = newRoom;
         }
 
+        public string WhereAreWe()
+        {
+            return _room.Name();
+        }
+
         public string Begin()
         {
             _room = new Loo();
