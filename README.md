@@ -34,7 +34,7 @@ dotnet test CsdTextAdventure.Specs
 dotnet watch --project CsdTextAdventure
 ```
 
-The adventure is now running at http://localhost:8080.
+The adventure is now running at http://localhost:8081.
 
 ### package
 ```shell script
