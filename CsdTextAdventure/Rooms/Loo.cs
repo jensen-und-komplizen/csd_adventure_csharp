@@ -97,6 +97,9 @@ namespace CsdTextAdventure.Rooms
                 case "open playboy":
                     return "sorry, the pages seem to stick together";
 
+                case "open scrum guide":
+                    return "The scrum guide is actually a waterflow guide";
+
                 default:
                     return "";
             }
