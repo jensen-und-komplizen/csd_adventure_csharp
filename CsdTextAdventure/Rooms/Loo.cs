@@ -53,6 +53,8 @@ namespace CsdTextAdventure.Rooms
         {
             switch(input)
             {
+                case "look at mirror":
+                    return "the mirror is dirty and full of grain";
                 case "look at magazines":
                     return
                         "You see a very much used Micky Mouse magazine, a very old and unusable playboy and what seems to be a scrum guide 2009 in mint condition.";
