@@ -29,5 +29,12 @@ namespace TestProject1
             string actual = _loo.Tell("look at mirror",a);
             actual.Should().Match("the mirror is dirty and full of grain");
         }
+        [Test]
+        public void look_at_scrum_guide()
+        {
+            Adventure a = new Adventure();
+            string actual = _loo.Tell("open scrum guide", a);
+            actual.Should().Match("The scrum guide is actually a waterflow guide");
+        }
     }
 }
