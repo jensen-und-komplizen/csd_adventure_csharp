@@ -70,7 +70,7 @@ namespace CsdTextAdventure.Rooms
                     return descr;
 
                 case "look at card":
-                    return "The card says that you are a Scrum Master";
+                    return "The card says that you are a Scrum Developer. One of the best in town.";
 
                 case "pick up coin":
                     if(_coinOnFloor == true)

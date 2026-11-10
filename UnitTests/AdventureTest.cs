@@ -112,7 +112,7 @@ namespace TestProject1
         public void that_I_learn_my_role_looking_at_card()
         {
             string actual = _adventure.tell("look at card");
-            actual.Should().Match("The card says that you are a Scrum Master");
+            actual.Should().Match("The card says that you are a Scrum Developer. One of the best in town.");
         }
 
         [Test]
