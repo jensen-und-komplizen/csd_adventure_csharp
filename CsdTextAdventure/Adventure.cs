@@ -48,7 +48,7 @@ namespace CsdTextAdventure
                 var output = _room.Tell(input, this);
                 if(output == "")
                 {
-                    return "Sorry. That didn't made sense. Try 'Help'.";;
+                    return "Sorry. That didn't make sense. Try 'Help'.";;
                 }
                 return output;
             }

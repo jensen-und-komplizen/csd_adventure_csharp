@@ -75,7 +75,7 @@ namespace CsdTextAdventure.Rooms
                     return descr;
 
                 case "look at card":
-                    return "The card says that you are a Scrum Master";
+                    return "The card says that you are a Scrum Developer. One of the best in town.";
 
                 case "look at door":
                     return "The door is closed but unlocked. There are some dirty jokes here. Also several stains of bodily fluids are splattered across it. It is not a pretty sight.";
