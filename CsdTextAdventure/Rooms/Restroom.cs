@@ -34,7 +34,7 @@ namespace CsdTextAdventure.Rooms
 
 
                 default:
-                    return "";
+                    return Description() + Environment.NewLine +  "You can not '{input}' in the Restroom";
             }
         }
     }

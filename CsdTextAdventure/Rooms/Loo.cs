@@ -111,7 +111,7 @@ namespace CsdTextAdventure.Rooms
                     return "The scrum guide is actually a waterflow guide";
 
                 default:
-                    return "";
+                    return Description() + Environment.NewLine +  "You can not '{input}' in the Loo";
             }
         }
     }
