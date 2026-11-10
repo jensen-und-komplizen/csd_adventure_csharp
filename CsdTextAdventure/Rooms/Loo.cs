@@ -13,14 +13,6 @@ namespace CsdTextAdventure.Rooms
         public Loo ()
         {
             _description = "You wake up on the loo. You have no idea where or who you are.";
-            _help =
-                "Commands:" + Environment.NewLine +
-                "quit" + Environment.NewLine +
-                "look around" + Environment.NewLine +
-                "go through door" + Environment.NewLine +
-                "look at" + Environment.NewLine +
-                "pick up" + Environment.NewLine +
-                "where am i" + Environment.NewLine;
             UpdateDetailedDescription();
             WriteJokes();
         }
@@ -33,6 +25,23 @@ namespace CsdTextAdventure.Rooms
         override public string Name()
         {
             return "Loo";
+        }
+
+        public override string Help()
+        {
+            string help = """
+                          Commands:
+                          quit
+                          look around
+                          go through door
+                          look at
+                          where am i
+                          
+                          """;
+
+            help += _pantsUp ? "pull down pants" : "pull up pants";
+
+            return help;
         }
 
         private void WriteJokes()
@@ -79,6 +88,9 @@ namespace CsdTextAdventure.Rooms
 
                 case "look at door":
                     return "The door is closed but unlocked. There are some dirty jokes here. Also several stains of bodily fluids are splattered across it. It is not a pretty sight.";
+
+                case "look at pants":
+                    return _pantsUp ? "Your trusty slightly worn blue jeans. You are now fully wearing them and proud of yourself." : "Your trusty slightly worn blue jeans. Inside there is a pair of underpants. I will not describe them further.";
 
                 case "pick up coin":
                     if(_coinOnFloor == true)
