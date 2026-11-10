@@ -20,5 +20,20 @@ namespace TestProject1
             string actual = _loo.Help();
             actual.Should().Match("Commands:*");
         }
+
+        [Test]
+        public void pants_in_description()
+        {
+	        var actual = _loo.DetailedDescription();
+	        actual.Should().Contain("you see your dropped pants");
+
+	        _loo.Tell("pull up pants", null);
+	        actual = _loo.DetailedDescription();
+			actual.Should().NotContain("you see your dropped pants");
+
+	        _loo.Tell("pull down pants", null);
+	        actual = _loo.DetailedDescription();
+			actual.Should().Contain("you see your dropped pants");
+		}
     }
 }
