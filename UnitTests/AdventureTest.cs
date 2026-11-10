@@ -163,7 +163,21 @@ namespace TestProject1
             string actual = _adventure.tell("go through door");
             actual = _adventure.tell("where am i");
             actual.Should().Match("*Loo*");
-        } 
+        }
+
+        [Test]
+        public void pick_up_scrum_guide_first()
+        {
+	        _adventure.Begin();
+	        string actual = _adventure.tell("look at magazines");
+            actual.Should().Contain("scrum guide");
+			actual = _adventure.tell("pick up scrum guide");
+	        actual.Should().Contain("picked up");
+	        actual = _adventure.tell("look at magazines");
+	        actual.Should().NotContain("scrum guide");
+		}
+
+        
 	}
 
 }
