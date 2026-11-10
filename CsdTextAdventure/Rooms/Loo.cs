@@ -35,6 +35,11 @@ namespace CsdTextAdventure.Rooms
             return "Loo";
         }
 
+        public string ReturnDescription()
+        {
+            return "You return to the loo. It is as dirty as you have left it";
+        }
+
         private void WriteJokes()
         {
             /* add some jokes to the central list of jokes. these will be used when the user types "look at jokes" */

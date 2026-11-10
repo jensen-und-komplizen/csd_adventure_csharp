@@ -31,7 +31,7 @@ namespace CsdTextAdventure.Rooms
                 case "return to loo":
                     var loo = new Loo();
                     adventure.SetRoom(loo);
-                    return loo.Description();
+                    return loo.ReturnDescription();
 
                 case "read list":
                 case "look at list":

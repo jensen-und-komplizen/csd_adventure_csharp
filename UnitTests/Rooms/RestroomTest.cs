@@ -31,7 +31,8 @@ namespace TestProject1
             string actual = adventure.tell("return to loo");
 
             adventure.WhereAreWe().Should().Be("Loo");
-            actual.Should().Be(new Loo().Description());
+            actual.Should().Contain("You return to the loo.");
+            actual.Should().NotBe(new Loo().Description());
         }
     }
 }
