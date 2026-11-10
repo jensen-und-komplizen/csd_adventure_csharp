@@ -80,6 +80,9 @@ namespace CsdTextAdventure.Rooms
                 case "look at door":
                     return "The door is closed but unlocked. There are some dirty jokes here. Also several stains of bodily fluids are splattered across it. It is not a pretty sight.";
 
+                case "look at pants":
+                    return _pantsUp ? "Your trusty slightly worn blue jeans. You are now fully wearing them and proud of yourself." : "Your trusty slightly worn blue jeans. Inside there is a pair of underpants. I will not describe them further.";
+
                 case "pick up coin":
                     if(_coinOnFloor == true)
                     {
