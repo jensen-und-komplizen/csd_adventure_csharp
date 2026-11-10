@@ -5,7 +5,11 @@ namespace CsdTextAdventure.Rooms
         abstract public string Name();
         public string Description() {return _description;}
         public string DetailedDescription() {return _detailed_description;}
-        public string Help() {return _help;}
+
+        public virtual string Help()
+        {
+            return _help;
+        }
 
         public abstract string Tell(string input, Adventure adventure);
         
