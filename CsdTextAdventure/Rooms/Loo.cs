@@ -77,6 +77,9 @@ namespace CsdTextAdventure.Rooms
                 case "look at card":
                     return "The card says that you are a Scrum Master";
 
+                case "look at door":
+                    return "The door is closed but unlocked. There are some dirty jokes here. Also several stains of bodily fluids are splattered across it. It is not a pretty sight.";
+
                 case "pick up coin":
                     if(_coinOnFloor == true)
                     {

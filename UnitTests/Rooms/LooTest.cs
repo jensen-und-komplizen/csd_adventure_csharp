@@ -37,11 +37,20 @@ namespace TestProject1
 			actual.Should().Contain("you see your dropped pants");
 		}
 		
+        [Test]
         public void look_for_mirror()
         {
             Adventure a = new Adventure();
             string actual = _loo.Tell("look at mirror",a);
             actual.Should().Match("the mirror is dirty and full of grain");
+        }
+		
+        [Test]
+        public void look_at_door()
+        {
+            Adventure a = new Adventure();
+            string actual = _loo.Tell("look at door",a);
+            actual.Should().Match("The door is closed but unlocked. There are some dirty jokes here. Also several stains of bodily fluids are splattered across it. It is not a pretty sight.");
         }
 		
         [Test]
