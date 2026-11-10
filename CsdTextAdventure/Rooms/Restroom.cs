@@ -14,6 +14,7 @@ namespace CsdTextAdventure.Rooms
                 "quit" + Environment.NewLine +
                 "look around" + Environment.NewLine +
                 "go through door" + Environment.NewLine +
+                "return to loo" + Environment.NewLine +
                 "look at" + Environment.NewLine +
                 "where am i" + Environment.NewLine;
         }
@@ -27,6 +28,11 @@ namespace CsdTextAdventure.Rooms
         {
             switch(input)
             {
+                case "return to loo":
+                    var loo = new Loo();
+                    adventure.SetRoom(loo);
+                    return loo.Description();
+
                 case "read list":
                 case "look at list":
                 case "show list":
