@@ -5,9 +5,10 @@ namespace CsdTextAdventure.Rooms
 {
     public class Loo : Room
     {
-        private Boolean _pantsUp = false;
+	    private Boolean _pantsUp = false;
         private Boolean _coinOnFloor = true;
-        private List<string> jokes = new();
+        private bool _scrumGuideOnFloor = true;
+		private List<string> jokes = new();
         private int jokeIdx = 0;
 
         public Loo ()
@@ -70,8 +71,11 @@ namespace CsdTextAdventure.Rooms
                 case "look at mirror":
                     return "the mirror is dirty and full of grain";
                 case "look at magazines":
-                    return
-                        "You see a very much used Micky Mouse magazine, a very old and unusable playboy and what seems to be a scrum guide 2009 in mint condition.";
+	                var scrumGuide = _scrumGuideOnFloor
+		                ? " and what seems to be a scrum guide 2009 in mint condition"
+		                : string.Empty;
+                    var andOrComma= _scrumGuideOnFloor  ? ",": " and";
+					return $"You see a very much used Micky Mouse magazine{andOrComma} a very old and unusable playboy{scrumGuide}.";
 
                 case "go through door":
                     var descr = "Pull your pants up!!! You pig!";
@@ -119,10 +123,18 @@ namespace CsdTextAdventure.Rooms
                 case "open playboy":
                     return "sorry, the pages seem to stick together";
 
-                case "open scrum guide":
-                    return "The scrum guide is actually a waterflow guide";
+                case "pick up scrum guide":
+	                if (_scrumGuideOnFloor == true)
+	                {
+		                _scrumGuideOnFloor = false;
+		                return "You picked up the scrum guide and put it in your pocket.";
+	                }
 
-                default:
+	                return "There are no more scrum guide on the floor.";
+                case "open scrum guide":
+	                return "The scrum guide is actually a waterflow guide";
+
+				default:
                     return "";
             }
         }
