@@ -13,7 +13,6 @@ namespace CsdTextAdventure.Rooms
         public Loo ()
         {
             _description = "You wake up on the loo. You have no idea where or who you are.";
-            _detailed_description = "You see a pretty dirty door, with some nasty jokes on it. Next to you is some toilet paper, a coin and a few magazines." + " When you look down, you see your dropped pants. In one of the pockets, you find a business card.";
             _help =
                 "Commands:" + Environment.NewLine +
                 "quit" + Environment.NewLine +
@@ -22,7 +21,13 @@ namespace CsdTextAdventure.Rooms
                 "look at" + Environment.NewLine +
                 "pick up" + Environment.NewLine +
                 "where am i" + Environment.NewLine;
+            UpdateDetailedDescription();
             WriteJokes();
+        }
+
+        private void UpdateDetailedDescription()
+        {
+	        _detailed_description = "You see a pretty dirty door, with some nasty jokes on it. Next to you is some toilet paper, a coin and a few magazines." + (_pantsUp ? " You are now fully wearing the pants." : " When you look down, you see your dropped pants.") + " In one of the pockets, you find a business card.";
         }
 
         override public string Name()
@@ -72,6 +77,9 @@ namespace CsdTextAdventure.Rooms
                 case "look at card":
                     return "The card says that you are a Scrum Master";
 
+                case "look at door":
+                    return "The door is closed but unlocked. There are some dirty jokes here. Also several stains of bodily fluids are splattered across it. It is not a pretty sight.";
+
                 case "pick up coin":
                     if(_coinOnFloor == true)
                     {
@@ -87,11 +95,13 @@ namespace CsdTextAdventure.Rooms
 
                 case "pull down pants":
                     _pantsUp = false;
+                    UpdateDetailedDescription();
                     return "Your pants are down.";
 
 
                 case "pull up pants":
                     _pantsUp = true;
+                    UpdateDetailedDescription();
                     return "Your pants are up.";
 
                 case "open playboy":
