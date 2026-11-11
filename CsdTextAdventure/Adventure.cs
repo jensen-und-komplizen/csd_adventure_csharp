@@ -29,7 +29,12 @@ namespace CsdTextAdventure
         {
             if (input == "quit")
             {
-                return "Bye bye";
+                if(_room.Name().ToString() == "Restroom")
+                {
+                    return "I can not leave the Restroom";
+                }
+                else
+                    return "Bye bye";
             }
             else if (input == "look around")
             {

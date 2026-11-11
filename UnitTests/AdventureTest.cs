@@ -54,7 +54,7 @@ namespace TestProject1
             _adventure.tell("pull up pants");
             _adventure.tell("go through door");
             string actual = _adventure.tell("look around");
-            actual.Should().Contain("The second door is leading to outside of the restroom");
+            actual.Should().Contain("Beside the mirror you see a list with things to do. You see two doors. One is leading to the Loo. The second door is leading to outside of the restroom");
             actual.Should().Contain("list");
         }
 
@@ -65,8 +65,8 @@ namespace TestProject1
             _adventure.tell("go through door");
             string actual = _adventure.tell("show list");
             actual.Should().Contain("wash");
-            actual.Should().Contain("pant");
-            actual.Should().Contain("dry");
+            actual.Should().Contain("pull up pants");
+            actual.Should().Contain("dry hair");
         }
         
         [Test]
