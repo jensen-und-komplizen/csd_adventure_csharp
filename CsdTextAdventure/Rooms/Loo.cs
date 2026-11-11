@@ -5,22 +5,15 @@ namespace CsdTextAdventure.Rooms
 {
     public class Loo : Room
     {
-        private Boolean _pantsUp = false;
+	    private Boolean _pantsUp = false;
         private Boolean _coinOnFloor = true;
-        private List<string> jokes = new();
+        private bool _scrumGuideOnFloor = true;
+		private List<string> jokes = new();
         private int jokeIdx = 0;
 
         public Loo ()
         {
             _description = "You wake up on the loo. You have no idea where or who you are.";
-            _help =
-                "Commands:" + Environment.NewLine +
-                "quit" + Environment.NewLine +
-                "look around" + Environment.NewLine +
-                "go through door" + Environment.NewLine +
-                "look at" + Environment.NewLine +
-                "pick up" + Environment.NewLine +
-                "where am i" + Environment.NewLine;
             UpdateDetailedDescription();
             WriteJokes();
         }
@@ -33,6 +26,23 @@ namespace CsdTextAdventure.Rooms
         override public string Name()
         {
             return "Loo";
+        }
+
+        public override string Help()
+        {
+            string help = """
+                          Commands:
+                          quit
+                          look around
+                          go through door
+                          look at
+                          where am i
+                          
+                          """;
+
+            help += _pantsUp ? "pull down pants" : "pull up pants";
+
+            return help;
         }
 
         private void WriteJokes()
@@ -61,8 +71,11 @@ namespace CsdTextAdventure.Rooms
                 case "look at mirror":
                     return "the mirror is dirty and full of grain";
                 case "look at magazines":
-                    return
-                        "You see a very much used Micky Mouse magazine, a very old and unusable playboy and what seems to be a scrum guide 2009 in mint condition.";
+	                var scrumGuide = _scrumGuideOnFloor
+		                ? " and what seems to be a scrum guide 2009 in mint condition"
+		                : string.Empty;
+                    var andOrComma= _scrumGuideOnFloor  ? ",": " and";
+					return $"You see a very much used Micky Mouse magazine{andOrComma} a very old and unusable playboy{scrumGuide}.";
 
                 case "go through door":
                     var descr = "Pull your pants up!!! You pig!";
@@ -79,6 +92,9 @@ namespace CsdTextAdventure.Rooms
 
                 case "look at door":
                     return "The door is closed but unlocked. There are some dirty jokes here. Also several stains of bodily fluids are splattered across it. It is not a pretty sight.";
+
+                case "look at pants":
+                    return _pantsUp ? "Your trusty slightly worn blue jeans. You are now fully wearing them and proud of yourself." : "Your trusty slightly worn blue jeans. Inside there is a pair of underpants. I will not describe them further.";
 
                 case "pick up coin":
                     if(_coinOnFloor == true)
@@ -107,10 +123,18 @@ namespace CsdTextAdventure.Rooms
                 case "open playboy":
                     return "sorry, the pages seem to stick together";
 
-                case "open scrum guide":
-                    return "The scrum guide is actually a waterflow guide";
+                case "pick up scrum guide":
+	                if (_scrumGuideOnFloor == true)
+	                {
+		                _scrumGuideOnFloor = false;
+		                return "You picked up the scrum guide and put it in your pocket.";
+	                }
 
-                default:
+	                return "There are no more scrum guide on the floor.";
+                case "open scrum guide":
+	                return "The scrum guide is actually a waterflow guide";
+
+				default:
                     return "";
             }
         }

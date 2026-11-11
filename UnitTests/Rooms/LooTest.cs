@@ -54,6 +54,23 @@ namespace TestProject1
         }
 		
         [Test]
+        public void look_at_pants()
+        {
+            Adventure a = new Adventure();
+            string actual = _loo.Tell("look at pants",a);
+            actual.Should().Match("Your trusty slightly worn blue jeans. Inside there is a pair of underpants. I will not describe them further.");
+        }
+
+        [Test]
+        public void look_at_pants_pulled_up()
+        {
+	        Adventure a = new Adventure();
+	        _loo.Tell("pull up pants", a);
+	        string actual = _loo.Tell("look at pants", a);
+	        actual.Should().Match("Your trusty slightly worn blue jeans. You are now fully wearing them and proud of yourself.");
+        }
+
+        [Test]
         public void look_at_scrum_guide()
         {
             Adventure a = new Adventure();
